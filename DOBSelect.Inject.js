@@ -75,8 +75,9 @@ provides:
 
             var options = this.options,
                 uniqueId = ['-dob', instanceCount].join(''),
+                containerClass = [options.containerClass, ' ', options.containerClass, uniqueId].join(''),
                 container = new Element('div', {
-                    'class': options.containerClass + uniqueId
+                    'class': containerClass
                 }),
                 types = {
                     day: 'Day',
