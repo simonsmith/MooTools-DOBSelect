@@ -123,9 +123,11 @@ provides:
 
             if (!date.isValid()) return;
 
-            this.day.set('value', date.get('Date'));
-            this.month.set('value', date.get('mo') + 1);
             this.year.set('value', date.get('year'));
+            this.month.set('value', date.get('mo') + 1);
+
+            this.updateDays(); // Ensure day select has correct total of days available
+            this.day.set('value', date.get('Date')); // Now set it
 
             this.fireEvent('setDate');
 
