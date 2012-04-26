@@ -5,8 +5,8 @@
         rootPath: "../",
         environment: "browser",
         libs:[
-            "./lib/mootools.js",
-            "./lib/mootools-more-1.4.0.1.js"
+            "./Demo/lib/mootools.js",
+            "./Demo/lib/mootools-more-1.4.0.1.js"
         ],
         sources: [
             "DOBSelect.js",

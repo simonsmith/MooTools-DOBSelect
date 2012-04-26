@@ -37,7 +37,8 @@ provides:
             oldestValidAge: 110,
             months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
             optionTemplate: ['<option value=', null, '>', null, '</option>'],
-            parseDateFormat: '%d/%m/%Y'
+            parseDateFormat: '%d/%m/%Y',
+            initialDate: new Date() // Used to determine initial day values in dropdown
         },
 
         /**
@@ -52,7 +53,7 @@ provides:
             this.optionTemplate = this.options.optionTemplate;
 
             // Used to set option values
-            this.dateNow = new Date();
+            this.dateNow = this.options.initialDate;
 
             // Quit if any select elements are missing
             this.selects = this.container.getElements('[data-select]');

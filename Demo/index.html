@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <script src="lib/mootools.js"></script>
+        <script src="lib/mootools-more-1.4.0.1.js"></script>
+        <script src="../DOBSelect.js"></script>
+        <script src="../DOBSelect.Inject.js"></script>
+        <script>
+            Locale.use('en-GB');
+            Date.defineParser('%d/%m/%Y');
+        </script>
+    </head>
+    <body>
+
+        <h1>DOBSelect</h1>
+        <p>Uses markup in the page</p>
+
+        <div id="dobselect">
+            <label for="day">Day</label>
+            <select name="day" id="day" data-select="day"></select>
+            <label for="month">Month</label>
+            <select name="month" id="month" data-select="month"></select>
+            <label for="year">Year</label>
+            <select name="year" id="year" data-select="year"></select>
+        </div>
+
+        <input type="text" id="doboutput1">
+
+        <script>
+            var input = $('doboutput1');
+            var dobselect = new DOBSelect($('dobselect'), {
+                initialDate: new Date('03/01/2012'),
+                onChange: function() {
+                    var date = this.parseDate();
+                    (date ? input.set('value', date) : input.erase('value'));
+                }
+            });
+        </script>
+
+        <h1>DOBSelect.Inject</h1>
+        <p>Creates own markup</p>
+
+        <div id="dobselect-inject"></div>
+
+        <input type="text" id="doboutput2">
+
+        <script>
+            var input2 = $('doboutput2');
+            var dobselectInject = new DOBSelect.Inject($('dobselect-inject'), {
+                initialDate: new Date('03/01/2012'),
+                onChange: function() {
+                    var date = this.parseDate();
+                    (date ? input2.set('value', date) : input2.erase('value'));
+                }
+            });
+        </script>
+
+    </body>
+</html>
